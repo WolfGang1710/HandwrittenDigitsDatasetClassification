@@ -8,7 +8,7 @@ Implémenter une méthode de régression logistique pour résoudre le problème 
 Le dataset *handwritten digits dataset* provient de la bibliothèque `scikit-learn`. On peut le trouver [ici](https://scikit-learn.org/stable/datasets/toy_dataset.html#optical-recognition-of-handwritten-digits-dataset)
 
 ## Statégie
-Le jeu de données contient 1797 entrées. Nous allons considérer une partition de ce dernier (180 entrées soit $\simeq 10 \%$)
+Le jeu de données contient 1797 entrées. Nous allons considérer une partition de ce dernier (180 entrées soit $\simeq$ 10%)
 
 ## Partie 1 - A la main
 * Considérer une partition de données ;
