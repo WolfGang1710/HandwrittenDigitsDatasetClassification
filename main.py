@@ -2,17 +2,17 @@
 @author : HERTZOG Thibaut & ROGUET William
 """
 
-#Importation des librairies nécessaires
+# Importation des librairies nécessaires
 
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.special
 import scipy.special as sp
 import scipy.optimize as opt
-import sklearn.model_selection
-import sklearn.datasets
+import sklearn
+from sklearn import preprocessing, metrics, datasets, model_selection, utils
 
-#Définition des constantes
+# Définition des constantes
 X = sklearn.datasets.load_digits().data
 Y = sklearn.datasets.load_digits().target
 N = len(X)
@@ -26,8 +26,4 @@ x_test_ones = np.column_stack((np.ones(len(x_test)), x_test))
 y_train = np.asarray(y_train, dtype=float)
 y_test = np.asarray(y_test, dtype=float)
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-def g(theta):
-    return sigmoid(np.dot(x_train_ones, theta))
+number_of_classes = len(np.unique(y_train))
