@@ -25,8 +25,29 @@ Le jeu de données contient 1797 entrées. Nous allons considérer une partition
 ## ToDo
 * [ ] Sur papier, décrypter les entrées, sorties, etc. du jeu de données ;
 * [ ] Réaliser la partie 1 ;
-* [ ] Réaliser la partie 2 ;
+* [x] Réaliser la partie 2 ;
 * [ ] Comparer les résultats ;
-* [ ] Commenter le code et le rendre lisible (noms de variables, ...) ;
+* [x] Commenter le code et le rendre lisible (noms de variables, ...) ;
 * [ ] Faire le rapport ;
 * [ ] Corriger le rapport.
+
+---
+
+## Aborescence du projet
+
+```bash
+HandwrittenDigitsDatasetClassification
+├── output # Contient l'ensemble des fichiers produits par les scripts
+│   └── img # Image (et PDF) servant à comparer Scikit-learn avec notre version *from scratch*
+│       ├── scikit-learn
+│       └── scratch
+├── ressources # Script que nous avons utilisé pour scikit-learn
+│   └── plot_digits_classification.py
+├── training # Les script Scikit-learn et *from sratch*
+│   ├── scikit-learn.py
+│   └── scratch.py
+├── utils # Toutes fonctions utiles pour le projet
+│   └── file.py
+├── main.py # Script qui lancera ce présent dans `training`
+└── README.md
+```
