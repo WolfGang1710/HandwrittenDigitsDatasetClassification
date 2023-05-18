@@ -51,3 +51,10 @@ HandwrittenDigitsDatasetClassification
 ├── main.py # Script qui lancera ce présent dans `training`
 └── README.md
 ```
+
+## Dépendances
+
+Merci de lancer la commande suivante dans un terminal : 
+```bash
+python -m pip install --upgrade pip ; pip install -r requirements.txt
+```
