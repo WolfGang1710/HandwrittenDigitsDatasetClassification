@@ -8,8 +8,7 @@ Implémenter une méthode de régression logistique pour résoudre le problème 
 Le dataset *handwritten digits dataset* provient de la bibliothèque `scikit-learn`. On peut le trouver [ici](https://scikit-learn.org/stable/datasets/toy_dataset.html#optical-recognition-of-handwritten-digits-dataset)
 
 ## Statégie
-Le jeu de données contient 1797 entrées. Nous allons considérer une partition de ce dernier (180 entrées soit $\simeq$ 10%)
-
+Le jeu de données contient 1797 entrées. Nous allons considérer $50%$ pour l'entrainement et $50%$ pour les tests 
 ## Partie 1 - A la main
 * Considérer une partition de données ;
 * Considérer un ensemble d'entraînement ;
@@ -44,7 +43,7 @@ HandwrittenDigitsDatasetClassification
 ├── ressources # Script que nous avons utilisé pour scikit-learn
 │   └── plot_digits_classification.py
 ├── training # Les script Scikit-learn et *from sratch*
-│   ├── scikit-learn.py
+│   ├── scikit_learn.py
 │   └── scratch.py
 ├── utils # Toutes fonctions utiles pour le projet
 │   └── file.py

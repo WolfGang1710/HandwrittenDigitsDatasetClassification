@@ -4,6 +4,9 @@
 
 import os
 import shutil
+import time
+import training.scikit_learn as train_skt
+# import training.scratch as train_scratch
 
 print(f"==============================================\n"
       f"Classification de chiffres écrit à main levée.\n"
@@ -23,3 +26,7 @@ for folder in folders:
     print(f"Dossier '{folder}' cree.")
 
 print(f"Termine.")
+
+start = time.time()
+train_skt.scikit_learn()
+print(f"Temps d'exécution avec scikit-learn : {time.time()-start}")
