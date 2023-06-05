@@ -5,8 +5,9 @@
 import os
 import shutil
 import time
+
+import training.scratch as train_scratch
 import training.scikit_learn as train_skt
-# import training.scratch as train_scratch
 
 print(f"==============================================\n"
       f"Classification de chiffres écrit à main levée.\n"
@@ -30,3 +31,7 @@ print(f"Termine.")
 start = time.time()
 train_skt.scikit_learn()
 print(f"Temps d'exécution avec scikit-learn : {time.time()-start}")
+
+start = time.time()
+train_scratch.scratch()
+print(f"Temps d'exécution avec la version scratch : {time.time()-start}")

@@ -5,7 +5,7 @@ Aucune fonction `fait maison' n'est utilisée.
 """
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn import datasets, svm, metrics
+from sklearn import datasets, metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
@@ -13,8 +13,8 @@ from utils.file import create_or_remove
 
 
 def scikit_learn():
-    scikit_learn_path = "../output/img/scikit-learn"
-    output = "../output"
+    scikit_learn_path = "output/img/scikit-learn"
+    output = "output"
 
     # Chargement du dataset
     digits = datasets.load_digits()
@@ -52,11 +52,11 @@ def scikit_learn():
     predicted = model.predict(X_test)
 
     _, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
-    for ax, image, prediction in zip(axes, X_test, predicted):
+    for ax, image, prediction, actual in zip(axes, X_test, predicted, y_test):
         ax.set_axis_off()
         image = image.reshape(8, 8)
         ax.imshow(image, cmap="gray", interpolation="nearest")
-        ax.set_title(f"Prediction: {prediction}")
+        ax.set_title(f"Prediction: {prediction} ; Réelle: {actual}")
     plt.savefig(f"{scikit_learn_path}/prediction.pdf")
     plt.savefig(f"{scikit_learn_path}/prediction.png")
     plt.show()
@@ -75,4 +75,18 @@ def scikit_learn():
 
     plt.savefig(f"{scikit_learn_path}/matrice_confusion.pdf")
     plt.savefig(f"{scikit_learn_path}/matrice_confusion.png")
+    plt.show()
+
+    accuracy = metrics.accuracy_score(y_test, predicted)
+    print(f"Accuracy avec scikit-learn : {accuracy:.4f}")
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(y_test[:30], 'ro-', label='Vraies étiquettes')
+    plt.plot(predicted[:30], 'bx-', label='Prédictions')
+    plt.xlabel('Indices des exemples')
+    plt.ylabel('Classe')
+    plt.title('Comparaison des vraies étiquettes et des prédictions')
+    plt.legend()
+    plt.savefig(f"{scikit_learn_path}/comparaison.pdf")
+    plt.savefig(f"{scikit_learn_path}/comparaison.png")
     plt.show()
