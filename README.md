@@ -36,17 +36,11 @@ Le jeu de données contient 1797 entrées. Nous allons considérer $50%$ pour l'
 
 ```bash
 HandwrittenDigitsDatasetClassification
-├── output # Contient l'ensemble des fichiers produits par les scripts
-│   └── img # Image (et PDF) servant à comparer Scikit-learn avec notre version *from scratch*
-│       ├── scikit-learn
-│       └── scratch
+├── img # Image (et PDF) servant à comparer Scikit-learn avec notre version *from scratch*
 ├── ressources # Script que nous avons utilisé pour scikit-learn
 │   └── plot_digits_classification.py
-├── training # Les script Scikit-learn et *from sratch*
-│   ├── scikit_learn.py
-│   └── scratch.py
+├── method # Les méthodes que nous avons implémenté
 ├── utils # Toutes fonctions utiles pour le projet
-│   └── file.py
 ├── main.py # Script qui lancera ce présent dans `training`
 └── README.md
 ```

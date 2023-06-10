@@ -40,7 +40,7 @@ print(f"Termine.\n"
       f"==============================================\n")
 
 print(f"Apprentissage avec la methode 'scikit-learn'.")
-# scikit_learn(X_train, X_test, y_train, y_test)
+scikit_learn(X_train, X_test, y_train, y_test)
 
 print(f"Apprentissage avec la methode 'from scratch'.")
 scratch(X_train, X_test, y_train, y_test)
