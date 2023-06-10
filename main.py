@@ -1,23 +1,24 @@
 """
-@author : HERTZOG Thibaut & ROGUET William
+@authors : HERTZOG Thibaut & ROGUET William
 """
+import os  # Gestion de fichiers
+import shutil  # Suppression de dossiers
 
-import os
-import shutil
-import time
-
-import training.scratch as train_scratch
-import training.scikit_learn as train_skt
+from sklearn import datasets  # Chargement des données
+from sklearn.model_selection import train_test_split  # Séparation des données en train et test
+from method import *  # Méthodes de classification
 
 print(f"==============================================\n"
-      f"Classification de chiffres écrit à main levée.\n"
+      f"\tClassification de chiffres manuscrits.\n"
       f"==============================================\n"
       f"\n"
-      f"Programme Python réalisé par Hertzog Thibaut & Roguet William.")
+      f"Programme Python réalisé par Hertzog Thibaut & Roguet William.\n")
 
-print(f"Initialisation")
+print(f"==============================================\n"
+      f"\t\t\tInitialisation.\n"
+      f"==============================================\n")
 
-folders = ['../output/', '../output/img', '../output/img/scikit-learn', '../output/img/scratch']
+folders = ['img']
 
 for folder in folders:
     if os.path.exists(folder):
@@ -26,12 +27,20 @@ for folder in folders:
     os.makedirs(folder)
     print(f"Dossier '{folder}' cree.")
 
-print(f"Termine.")
+print(f"Termine.\n"
+      f"==============================================\n")
 
-start = time.time()
-train_skt.scikit_learn()
-print(f"Temps d'exécution avec scikit-learn : {time.time()-start}")
+print(f"Chargement des donneés.")
+digits = datasets.load_digits()
+X_train, X_test, y_train, y_test = train_test_split(digits.data,
+                                                    digits.target,
+                                                    test_size=0.2)
 
-start = time.time()
-train_scratch.scratch()
-print(f"Temps d'exécution avec la version scratch : {time.time()-start}")
+print(f"Termine.\n"
+      f"==============================================\n")
+
+print(f"Apprentissage avec la methode 'scikit-learn'.")
+# scikit_learn(X_train, X_test, y_train, y_test)
+
+print(f"Apprentissage avec la methode 'from scratch'.")
+scratch(X_train, X_test, y_train, y_test)
