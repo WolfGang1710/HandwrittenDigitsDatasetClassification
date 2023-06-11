@@ -75,11 +75,23 @@ def scratch(X_train, X_test, y_train, y_test):
 
     # Calcul de l'accuracy sur le test
     accuracy = accuracy_score(y_test, y_pred_test)
-    print("Accuracy:", accuracy)
+    print("Accuracy sur le jeu de test:", accuracy)
 
     # Calcul de l'accuracy sur le train
     accuracy = accuracy_score(y_train, y_pred_train)
-    print("Accuracy:", accuracy)
+    print("Accuracy avec sur le jeu d'entrainement:", accuracy)
+
+    # Affichage des 4 premières images ainsi que leur label
+    _, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
+    for ax, image, prediction, actual in zip(axes, X_test, y_pred_test, y_test):
+        ax.set_axis_off()
+        image = image.reshape(8, 8)  # 8x8 pixels
+        ax.imshow(image, cmap="gray", interpolation="nearest")
+        ax.set_title(f"Prediction: {prediction} ; Réelle: {actual}")
+    plt.savefig("img/prediction_scratch.pdf")
+    plt.savefig("img/prediction_sratch.png")
+    plt.show()
+    plt.close()
 
     cm = confusion_matrix(y_test, y_pred_test)
     seaborn.heatmap(cm, annot=True, cmap="Blues")
